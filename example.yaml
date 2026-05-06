@@ -1,0 +1,42 @@
+esphome:
+  name: mt6701_example
+  platform: ESP8266
+  board: d1_mini
+
+external_components:
+  - source: github://voed/mt6701_i2c_esphome@main
+    components: [mt6701_i2c]
+
+    
+wifi:
+  ssid: "your_ssid"
+  password: "your_password"
+
+logger:
+
+api:
+
+ota:
+
+i2c:
+  sda: D2
+  scl: D1
+  scan: false # for some reason the sensor does not appear in the i2c scan results, so we disable it to avoid confusion
+
+sensor:
+  - platform: mt6701_i2c
+    name: "MT6701 Angle"
+    id: mt6701_sensor
+    offset: 0.0 # Optional offset in degrees, default is 0.0
+    update_interval: 1s
+
+# Example automation using the runtime offset action
+automation:
+  - alias: "Set MT6701 Offset"
+    trigger:
+      - platform: homeassistant
+        event: start
+    then:
+      - mt6701_i2c.set_offset:
+          id: mt6701_sensor
+          offset: 15.0
