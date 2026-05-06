@@ -7,7 +7,7 @@ Custom ESPHome component for the MT6701 magnetic rotary encoder using I2C.
 - Reads angle position from an MT6701 sensor over I2C
 - Publishes a sensor value in degrees
 - Supports an optional zero offset
-- Default polling interval is `10s`
+- Default polling interval is `1s`
 - Includes an automation action to update the offset at runtime
 
 ## Component parameters
