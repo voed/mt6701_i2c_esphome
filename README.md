@@ -18,22 +18,6 @@ Custom ESPHome component for the MT6701 magnetic rotary encoder using I2C.
 | `offset` | `0.0` | Calibration offset in degrees |
 | `update_interval` | `1s` | Polling interval for the sensor |
 
-## Installation
-
-Place this component in your ESPHome custom components folder.
-
-Example folder layout:
-
-```text
-config/
-  esphome.yaml
-  custom_components/
-    mt6701_i2c/
-      __init__.py
-      mt6701_i2c.cpp
-      mt6701_i2c.h
-      sensor.py
-```
 
 If you use a local directory for custom components, ensure ESPHome can see it by using `custom_component:` or `external_components:` as appropriate.
 
